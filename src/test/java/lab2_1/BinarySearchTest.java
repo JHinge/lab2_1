@@ -52,4 +52,11 @@ public class BinarySearchTest {
         assertEquals(key, oneElementTab[searchResult.getPosition()]);
     }
 
+    @Test
+    public void shouldReturnMinusOneIfElementNotFoundAndTabLengthIsBiggerThanOne() {
+        int key = -1;
+        SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
+        assertEquals(false, searchResult.isFound());
+        assertEquals(-1, searchResult.getPosition());
+    }
 }
