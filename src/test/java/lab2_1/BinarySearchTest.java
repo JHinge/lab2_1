@@ -1,6 +1,7 @@
 package lab2_1;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -16,48 +17,48 @@ public class BinarySearchTest {
     public void shouldSayThatElementIsFoundAndIsInPositionOfIndexZeroIfTabLengthIsOne() {
         int key = 1;
         SearchResult searchResult = BinarySearch.search(key, oneElementTab);
-        assertEquals(true, searchResult.isFound());
-        assertEquals(key, oneElementTab[searchResult.getPosition()]);
+        assertThat(searchResult.isFound(), equalTo(true));
+        assertThat(key, equalTo(oneElementTab[searchResult.getPosition()]));
     }
 
     @Test
     public void shouldSayThatElementIsNotFoundAndIsInPositionOfIndexMinusOneIfTabLengthIsOne() {
         int key = 0;
         SearchResult searchResult = BinarySearch.search(key, oneElementTab);
-        assertEquals(false, searchResult.isFound());
-        assertEquals(-1, searchResult.getPosition());
+        assertThat(false, equalTo(searchResult.isFound()));
+        assertThat(-1, equalTo(searchResult.getPosition()));
     }
 
     @Test
     public void shouldSayThatFirstElementIsFoundIfTabLengthIsBiggerThanOne() {
         int key = 1;
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
-        assertEquals(true, searchResult.isFound());
-        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
+        assertThat(true, equalTo(searchResult.isFound()));
+        assertThat(key, equalTo(moreThanOneElementTab[searchResult.getPosition()]));
     }
 
     @Test
     public void shouldSayThatMiddleElementIsFoundIfTabLengthIsBiggerThanOne() {
         int key = 5;
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
-        assertEquals(true, searchResult.isFound());
-        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
+        assertThat(true, equalTo(searchResult.isFound()));
+        assertThat(key, equalTo(moreThanOneElementTab[searchResult.getPosition()]));
     }
 
     @Test
     public void shouldSayThatLastElementIsFoundIfTabLengthIsBiggerThanOne() {
         int key = moreThanOneElementTab[moreThanOneElementTab.length - 1];
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
-        assertEquals(true, searchResult.isFound());
-        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
+        assertThat(true, equalTo(searchResult.isFound()));
+        assertThat(key, equalTo(moreThanOneElementTab[searchResult.getPosition()]));
     }
 
     @Test
     public void shouldReturnMinusOneIfElementNotFoundAndTabLengthIsBiggerThanOne() {
         int key = -1;
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
-        assertEquals(false, searchResult.isFound());
-        assertEquals(-1, searchResult.getPosition());
+        assertThat(false, equalTo(searchResult.isFound()));
+        assertThat(-1, equalTo(searchResult.getPosition()));
     }
 
     @Test(expected = IllegalArgumentException.class)
