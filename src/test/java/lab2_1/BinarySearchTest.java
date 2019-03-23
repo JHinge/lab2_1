@@ -33,7 +33,7 @@ public class BinarySearchTest {
         int key = 1;
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
         assertEquals(true, searchResult.isFound());
-        assertEquals(key, oneElementTab[searchResult.getPosition()]);
+        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class BinarySearchTest {
         int key = 5;
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
         assertEquals(true, searchResult.isFound());
-        assertEquals(key, oneElementTab[searchResult.getPosition()]);
+        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class BinarySearchTest {
         int key = moreThanOneElementTab[moreThanOneElementTab.length - 1];
         SearchResult searchResult = BinarySearch.search(key, moreThanOneElementTab);
         assertEquals(true, searchResult.isFound());
-        assertEquals(key, oneElementTab[searchResult.getPosition()]);
+        assertEquals(key, moreThanOneElementTab[searchResult.getPosition()]);
     }
 
     @Test
